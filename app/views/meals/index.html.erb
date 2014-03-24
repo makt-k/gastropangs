@@ -1,9 +1,11 @@
 <h1>Stufd</h1>
   <%= form_for [@user, @meal], remote: true do |f| %>
-    <%= f.number_field :level_of_fullness, label: "Satiety" %>
+    <%= f.select :level_of_fullness,[1, 2, 3, 4, 5] %>
     <%= f.select :time, ['Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)'] %>
     <%= f.text_field :date %>
     <%= f.submit %>
   <% end %>
 
+<button id="all">Track Record</button>
+<svg class="graph"></svg>
 
