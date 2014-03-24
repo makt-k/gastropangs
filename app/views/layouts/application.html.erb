@@ -2,16 +2,43 @@
 <html>
   <head>
     <title>Gastropangs</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
+     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <h1>Gastropangs</h1>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="container">
+  <!-- user status -->
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <span id="home"><%= link_to 'Gastropangs', root_path %></span>
+        <div class="navbar-header pull-right">
+         <!-- User NAV -->
+         <span class="login-nav">
+          <% if user_signed_in? %>
+            <span>Signed in as <%= current_user.email %></span>
+            <span><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></span>
+          <% else %>
+            <span><%=  link_to 'Log In', new_user_session_path %></span>
+          <% end %>
+         </span>
+        </div>
+      </div>
+    </div>
+  <!-- notice & alerts -->
+    <div class="notice-alert">
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present?%>
+        <p class="alert"><%= alert %></p>
+       <% end%>
+    </div>
 
     <%= yield %>
-
+  </div>
   </body>
 </html>
