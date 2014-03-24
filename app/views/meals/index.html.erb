@@ -1,1 +1,8 @@
 <h1>Stufd</h1>
+  <%= form_for [@user, @meal], remote: true do |f| %>
+    <%= f.select :type, ['Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)'] %>
+    <%= f.text_field :date %>
+    <%= f.submit %>
+  <% end %>
+
+
