@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 1.2'
 gem 'd3-rails'
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'jquery-ui-rails'
 
 group :doc do
   gem 'sdoc', require: false
