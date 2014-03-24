@@ -12,18 +12,21 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(meal_params)
-    if @meal.save!
+    meal = Meal.new(meal_params)
+    meal.date = Date.strptime(meal_params[:date], '%m/%d/%Y').to_s
+    @user.meals << meal
+    if @user.save!
       flash[:notice] = "Your meal has been charted!"
     else
       flash[:alert] = "Sorry, please try again."
     end
+    redirect_to :back
   end
 
   private
 
   def meal_params
-    params.require(:meal).permit(:type, :level_of_fullness, :date, :user_id)
+    params.require(:meal).permit(:time, :level_of_fullness, :date)
   end
 
   def get_user

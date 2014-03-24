@@ -3,6 +3,6 @@ Gastropangs::Application.routes.draw do
   root :to => "home#index"
 
   resources :users, :only => :show do
-    resources :meals, :only => :index
+    resources :meals, :only => [:index, :create]
   end
 end
