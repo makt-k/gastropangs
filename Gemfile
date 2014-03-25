@@ -10,6 +10,7 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'd3-rails'
 gem 'devise'
+gem 'chronic'
 
 group :doc do
   gem 'sdoc', require: false

@@ -1,32 +1,32 @@
-<h2>Strut Your Stufd</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="form">
-        <%= form_for [@user, @meal], remote: true do |f| %>
-          <div class="col-md-2">
-            <%= f.range_field :level_of_fullness, min: 1, max: 10, value: 1 %>
-          </div>
-          <div class="col-md-8">
-            <div class="form-group">
-              <%= f.select(:time, options_for_select(['', 'Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)']), {}, {class: "form-control"})%>
-            </div>
-            <div class="form-group" id='datepicker'>
-              <%= f.text_field :date, class: "form-control", placeholder: "mm/dd/yyyy"%>
-            </div>
-            <p class="note">Stufdometer: <span id="level">1</span> out of 10</p>
-            <%= f.submit class: "btn btn-warning"%>
-          <% end %>
-          </div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form">
+      <%= form_for [@user, @meal], remote: true do |f| %>
+        <div class="col-md-2">
+          <%= f.range_field :level_of_fullness, min: 1, max: 10, value: 1 %>
         </div>
-    </div>
-    <div class="col-md-6">
-      <svg id="graph">
-      </svg>
-    </div>
-    <div class="col-md-2">
-      <button id="all" class="btn btn-info">Track Record</button>
-    </div>
+        <div class="col-md-8">
+          <div class="form-group">
+            <%= f.select(:time, options_for_select(['', 'Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)']), {}, {class: "form-control"})%>
+          </div>
+          <div class="form-group" id='datepicker'>
+            <%= f.text_field :date, class: "form-control", placeholder: "mm/dd/yyyy"%>
+          </div>
+          <p class="note">Stufdometer: <span id="level">1</span> out of 10</p>
+          <%= f.submit class: "btn btn-warning"%>
+        <% end %>
+        </div>
+      </div>
   </div>
+  <div class="col-md-6">
+    <svg id="graph">
+    </svg>
+  </div>
+  <div class="col-md-2">
+    <button id="all" class="btn btn-info">Track Record</button>
+    <br>
+  </div>
+</div>
 
 
 

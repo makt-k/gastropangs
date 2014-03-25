@@ -1,4 +1,7 @@
+var Gastropangs = Gastropangs || {};
+
 $(document).ready(function(){
+
   $("#all").click(Gastropangs.fetchAllMeals.bind(this));
 
   $('#meal_date').datepicker();
@@ -12,8 +15,10 @@ $(document).ready(function(){
   });
 
   $('#new_meal').on('ajax:success', function(event, data, status, xhr) {
+      $('.notice').hide();
       $('#meal_level_of_fullness').val(1);
       $('#meal_time').val('');
       $.datepicker._clearDate('#meal_date');
   });
 });
+

@@ -55,6 +55,7 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
+    chronic (0.10.2)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -253,6 +254,7 @@ DEPENDENCIES
   binding_of_caller
   bullet
   capybara
+  chronic
   coffee-rails (~> 4.0.0)
   d3-rails
   database_cleaner
