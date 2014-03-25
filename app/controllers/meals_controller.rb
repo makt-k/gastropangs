@@ -23,7 +23,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.date = Date.strptime(meal_params[:date], '%m/%d/%Y').to_s
-    if @meal.save
+    if @meal.save!
       @user.meals << @meal
       redirect_to :back, notice: 'Sweet! A new meal added.'
     else
