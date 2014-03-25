@@ -10,7 +10,6 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'd3-rails'
 gem 'devise'
-gem 'omniauth-facebook'
 
 group :doc do
   gem 'sdoc', require: false

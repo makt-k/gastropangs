@@ -16,8 +16,3 @@
 //= require d3
 //= require_tree .
 
-$(function() {
-  $('#meal_date').datepicker();
-});
-
-
