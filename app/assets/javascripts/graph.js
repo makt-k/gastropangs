@@ -1,7 +1,8 @@
-Gastropangs.fetchAllMeals = function(data) {
+Gastropangs.fetchAllMeals = function() {
+  var id = $('#all').data('user');
   $.ajax({
     type: "GET",
-    url: data.target.baseURI,
+    url: "/users/" + id + "/meals",
     dataType: "JSON",
     success: function(meals) {
       Gastropangs.drawGraph(meals);
