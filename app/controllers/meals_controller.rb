@@ -5,7 +5,7 @@ class MealsController < ApplicationController
 
   def index
    if current_user
-     @meals = current_user.meals.order(:date)
+     @meals = current_user.meals.order(:date).page(params[:page]).per_page(20)
      @meal = Meal.new
    else
      redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -44,6 +44,10 @@ class MealsController < ApplicationController
     end
   end
 
+  def show
+    @meal = Meal.find(params[:id])
+  end
+
   private
 
   def meal_params
@@ -64,7 +68,6 @@ class MealsController < ApplicationController
       saturday: 6,
       sunday: 7
     }
-
     @weekday = dow[params[:weekday].to_sym]
   end
 end

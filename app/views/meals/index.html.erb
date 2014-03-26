@@ -19,6 +19,28 @@
       </div>
   </div>
   <div class="col-md-6">
+    <div id="report">
+      <table>
+        <h3>Report:</h3>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type of Meal</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+        <%= will_paginate @meals %>
+        <tbody>
+        <tr>
+          <% @meals.each do |meal| %>
+          <td><%= meal.date %></td>
+          <td><%= meal.time %></td>
+          <td><%= link_to '»', user_meal_path(meal.user_id, meal.id) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
     <svg id="graph">
     </svg>
   </div>
@@ -27,9 +49,26 @@
     <button id="overate" class="btn btn-danger">Stufd Meals</button>
     <input id="search_dow" placeholder="Day of the Week" class="form-control">
     <button id="graph_by_dow" class="btn btn-success">View by Day of Week</button>
+    <table>
+      <h3>Stufd on:</h3>
+        <div id="dow_stufd">
+          <p><%= pluralize(@meals.overeating_count_on_weekday(1), 'Monday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(2), 'Tuesday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(3), 'Wednesday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(4), 'Thursday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(5), 'Friday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(6), 'Saturday') %></p>
+          <p><%= pluralize(@meals.overeating_count_on_weekday(7), 'Sunday') %></p>
+        </div>
+        <div id="time_stufd">
+          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Morning') %></p>
+          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Afternoon(12pm-6pm)"), 'Afternoon') %></p>
+          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Night(6pm-12am)"), 'Night') %></p>
+          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Owl Time(12am-6am)"), 'Owl Time') %></p>
+        </div>
+
   </div>
 </div>
-
 
 
 
