@@ -1,6 +1,7 @@
+<h3><%= @meal.date %>: <%= @meal.time %></h3>
 <h2>Satiety: <%= @meal.level_of_fullness %></h2>
 
-<%= form_for [@user, @meal] do |f| %>
-<%= f.text_area :note %>
-<%= f.submit %>
-<% end %>
+<%= @meal.note %>
+
+
+

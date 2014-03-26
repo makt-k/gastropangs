@@ -4,11 +4,12 @@ Gastropangs.saveMeal = function(event) {
   var $fullness = $("#meal_level_of_fullness"),
     $time = $("#meal_time"),
     $date = $("#meal_date"),
+    $note = $("#meal_note"),
     meal,
     id = $('#all').data('user');
 
   event.preventDefault();
-  this.currentMeal = new Gastropangs.Meal($fullness.val(), $time.val(), $date.val());
+  this.currentMeal = new Gastropangs.Meal($fullness.val(), $time.val(), $date.val(), $note.val());
   meal = this.currentMeal;
 
   if($time.val() === "" || $date.val() === "") {
@@ -20,14 +21,16 @@ Gastropangs.saveMeal = function(event) {
       data: {meal: {
         level_of_fullness: meal.level_of_fullness,
         time: meal.time,
-        date: meal.date}},
+        date: meal.date,
+        note: meal.note}},
         dataType: 'json'
     }).done(function (data) {
       meal.id = data.id;
         $('.notice').hide();
         $('#meal_level_of_fullness').val(1);
         $('#meal_time').val('');
-        $.datepicker._clearDate('#meal_date');
+        $('#meal_date').val('');
+        $('#meal_note').val('');
     });
   }
 };

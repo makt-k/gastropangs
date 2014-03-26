@@ -1,72 +1,27 @@
 <div class="row">
   <div class="col-md-4">
-    <div class="form">
-      <%= form_for [@user, @meal] do |f| %>
-        <div class="col-md-2">
-          <%= f.range_field :level_of_fullness, min: 1, max: 10, value: 1 %>
-        </div>
-        <div class="col-md-8">
-          <div class="form-group">
-            <%= f.select(:time, options_for_select(['', 'Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)']), {}, {class: "form-control"})%>
-          </div>
-          <div class="form-group" id='datepicker'>
-            <%= f.text_field :date, class: "form-control", placeholder: "mm/dd/yyyy"%>
-          </div>
-          <p class="note">Stufdometer: <span id="level">1</span> out of 10</p>
-          <%= f.submit class: "btn btn-warning"%>
-        <% end %>
-        </div>
-      </div>
+    <%= render partial: 'new_form' %>
   </div>
   <div class="col-md-6">
-    <div id="report">
-      <table>
-        <h3>Report:</h3>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Type of Meal</th>
-              <th>Details</th>
-            </tr>
-          </thead>
-        <%= will_paginate @meals %>
-        <tbody>
-        <tr>
-          <% @meals.each do |meal| %>
-          <td><%= meal.date %></td>
-          <td><%= meal.time %></td>
-          <td><%= link_to '»', user_meal_path(meal.user_id, meal.id) %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-    </div>
+    <h3 class="open_report">Report</h3>
+      <h6 class="open_report">(Click to View)</h6>
+        <div id="report">
+          <%= render partial: 'meals_report' %>
+        </div>
     <svg id="graph">
     </svg>
   </div>
   <div class="col-md-2">
-    <button id="all" data-user="<%= current_user.id %>" class="btn btn-info">Your Meals</button>
-    <button id="overate" class="btn btn-danger">Stufd Meals</button>
-    <input id="search_dow" placeholder="Day of the Week" class="form-control">
-    <button id="graph_by_dow" class="btn btn-success">View by Day of Week</button>
-    <table>
-      <h3>Stufd on:</h3>
-        <div id="dow_stufd">
-          <p><%= pluralize(@meals.overeating_count_on_weekday(1), 'Monday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(2), 'Tuesday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(3), 'Wednesday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(4), 'Thursday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(5), 'Friday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(6), 'Saturday') %></p>
-          <p><%= pluralize(@meals.overeating_count_on_weekday(7), 'Sunday') %></p>
-        </div>
-        <div id="time_stufd">
-          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Morning') %></p>
-          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Afternoon(12pm-6pm)"), 'Afternoon') %></p>
-          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Night(6pm-12am)"), 'Night') %></p>
-          <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Owl Time(12am-6am)"), 'Owl Time') %></p>
-        </div>
-
+    <div class="btn-group-vertical">
+      <button id="clear" class="btn btn-danger">Clear Graph</button>
+      <button id="all" data-user="<%= current_user.id %>" class="btn btn-success">Your Meals</button>
+      <button id="overate" class="btn btn-primary">Stufd Meals</button>
+      <input id="search_dow" placeholder="(e.g. 'Monday')" class="form-control">
+      <button id="graph_by_dow" class="btn btn-warning">View by Day of Week</button>
+    </div>
+    <h4 class="open_scoreboard">Stufd Scoreboard</h4>
+      <h6 class="open_scoreboard">(Click to View)</h6>
+      <%= render partial: 'stufd_score' %>
   </div>
 </div>
 

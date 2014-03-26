@@ -1,0 +1,12 @@
+<div id="score">
+  <h4>Stufd on:</h4>
+  <% {1=> 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday',6 => 'Saturday', 7 => 'Sunday'}.each do |k, v| %>
+    <p><%= pluralize(@meals.overeating_count_on_weekday(k), v) %></p>
+  <% end %>
+  <br>
+  <h4>Stufd by:</h4>
+    <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Breakfast') %></p>
+    <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Afternoon(12pm-6pm)"), 'Lunch') %></p>
+    <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Night(6pm-12am)"), 'Dinner') %></p>
+    <p><%= pluralize(@meals.overeating_count_per_type_of_meal("Owl Time(12am-6am)"), 'Midnight Snack') %></p>
+</div>

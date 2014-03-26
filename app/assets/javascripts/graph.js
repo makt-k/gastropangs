@@ -39,10 +39,14 @@ Gastropangs.fetchMealsOverAte = function() {
     dataType: "JSON",
     success: function(meals) {
       $('#graph').fadeOut(300, function() {
-        $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(300);
+        $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(200);
       });
     }
   });
+};
+
+Gastropangs.clearGraph = function() {
+  $('#graph').fadeOut(300);
 };
 
 Gastropangs.drawGraph = function(meals) {
@@ -75,8 +79,8 @@ Gastropangs.drawGraph = function(meals) {
             .attr('class', 'bar')
             .attr('fill', function(m) { return colorScale(m.time); })
             .attr('height', function(m) { return yScale(m.level_of_fullness); })
-            .attr('width', 10)
-            .attr('x', function(m, i) { return i * 20; })
+            .attr('width', 15)
+            .attr('x', function(m, i) { return i * 25; })
             .attr("y", function(m) { return (height - yScale(m.level_of_fullness)); })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);

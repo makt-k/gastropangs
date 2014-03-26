@@ -3,7 +3,7 @@ Gastropangs::Application.routes.draw do
   root :to => "home#index"
 
   resources :users, :only => :show do
-    resources :meals, :only => [:index, :create, :show]
+    resources :meals, :only => [:index, :create, :show, :update]
   end
 
   get'/users/:user_id/over' => "meals#overate"

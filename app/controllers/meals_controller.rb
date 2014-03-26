@@ -5,7 +5,8 @@ class MealsController < ApplicationController
 
   def index
    if current_user
-     @meals = current_user.meals.order(:date).page(params[:page]).per_page(20)
+     @meals = current_user.meals.order(:date)
+     @meals_display = @meals.reverse_order.page(params[:page]).per_page(15)
      @meal = Meal.new
    else
      redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -37,7 +38,7 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-    @meal.date = Date.strptime(meal_params[:date], '%m/%d/%Y').to_s
+    # @meal.date = Date.strptime(meal_params[:date], '%m/%d/%Y').to_s
     if @meal.save!
       @user.meals << @meal
       redirect_to :back, notice: 'Sweet! A new meal added.'
@@ -51,7 +52,7 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:time, :level_of_fullness, :date, :id, :weekday)
+    params.require(:meal).permit(:time, :level_of_fullness, :date, :id, :weekday, :note)
   end
 
   def get_user
