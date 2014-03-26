@@ -6,4 +6,6 @@ Gastropangs::Application.routes.draw do
     resources :meals, :only => [:index, :create, :show]
   end
 
+  get'/users/:user_id/over' => "meals#overate"
+
 end

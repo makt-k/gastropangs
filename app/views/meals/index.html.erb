@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-4">
     <div class="form">
-      <%= form_for [@user, @meal], remote: true do |f| %>
+      <%= form_for [@user, @meal] do |f| %>
         <div class="col-md-2">
           <%= f.range_field :level_of_fullness, min: 1, max: 10, value: 1 %>
         </div>
@@ -23,8 +23,10 @@
     </svg>
   </div>
   <div class="col-md-2">
-    <button id="all" data-user="<%= current_user.id %>" class="btn btn-info">Track Record</button>
+    <button id="all" data-user="<%= current_user.id %>" class="btn btn-info">Your Meals</button>
     <br>
+    <br>
+    <button id="overate" data-user="<%= current_user.id %>" class="btn btn-danger">Stufd Meals</button>
   </div>
 </div>
 

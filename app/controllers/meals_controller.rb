@@ -16,6 +16,15 @@ class MealsController < ApplicationController
     end
   end
 
+  def overate
+    @meals = current_user.meals.order(:date).where('level_of_fullness > ?', 7)
+
+     respond_to do |format|
+      format.html
+      format.json {render json: @meals, root: false }
+    end
+  end
+
   def show
     @meal = Meal.find(params[:id])
   end

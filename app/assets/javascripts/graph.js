@@ -1,8 +1,22 @@
+var Gastropangs = Gastropangs || {};
+
 Gastropangs.fetchAllMeals = function() {
   var id = $('#all').data('user');
   $.ajax({
     type: "GET",
     url: "/users/" + id + "/meals",
+    dataType: "JSON",
+    success: function(meals) {
+      Gastropangs.drawGraph(meals);
+    }
+  });
+};
+
+Gastropangs.fetchMealsOverAte = function() {
+  var id = $('#all').data('user');
+  $.ajax({
+    type: "GET",
+    url: "/users/" + id + "/over",
     dataType: "JSON",
     success: function(meals) {
       Gastropangs.drawGraph(meals);
@@ -38,10 +52,10 @@ Gastropangs.drawGraph = function(meals) {
           .enter()
           .append('rect')
             .attr('class', 'bar')
-            .attr('fill', function(m) { return colorScale(m.time) })
-            .attr('height', function(m) { return yScale(m.level_of_fullness) })
+            .attr('fill', function(m) { return colorScale(m.time); })
+            .attr('height', function(m) { return yScale(m.level_of_fullness); })
             .attr('width', 5)
-            .attr('x', function(m, i) { return i * 10})
+            .attr('x', function(m, i) { return i * 10; })
             .attr("y", function(m) { return (height - yScale(m.level_of_fullness)); })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);
