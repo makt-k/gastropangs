@@ -7,5 +7,6 @@ Gastropangs::Application.routes.draw do
   end
 
   get'/users/:user_id/over' => "meals#overate"
+  get'/users/:user_id/dow' => "meals#meals_by_dow"
 
 end

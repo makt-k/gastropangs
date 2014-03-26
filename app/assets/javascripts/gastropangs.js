@@ -6,4 +6,5 @@ $(document).ready(function(){
   $('#meal_date').datepicker();
   Gastropangs.fullnessText();
   $('#new_meal').on('submit', Gastropangs.saveMeal.bind(this));
+  $('#graph_by_dow').click(Gastropangs.fetchMealsByDOW.bind(this));
 });

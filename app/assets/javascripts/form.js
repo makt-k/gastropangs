@@ -11,11 +11,9 @@ Gastropangs.saveMeal = function(event) {
   this.currentMeal = new Gastropangs.Meal($fullness.val(), $time.val(), $date.val());
   meal = this.currentMeal;
 
-
   if($time.val() === "" || $date.val() === "") {
     $('.notice-alert').prepend("Please enter a time and date for your meal.");
     } else {
-
     $.ajax({
       type: "POST",
       url: "/users/" + id + "/meals",
@@ -30,9 +28,10 @@ Gastropangs.saveMeal = function(event) {
         $('#meal_level_of_fullness').val(1);
         $('#meal_time').val('');
         $.datepicker._clearDate('#meal_date');
-      });
-    }
-  };
+    });
+  }
+};
+
 Gastropangs.fullnessText = function(){
   var level = $('#level');
   $('#meal_level_of_fullness').change(function(){
