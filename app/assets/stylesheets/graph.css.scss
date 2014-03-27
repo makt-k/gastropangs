@@ -37,3 +37,13 @@
   border-radius: 6px;
   background-color: #F0FFF0;
 }
+
+.yaxis {
+  font-size: .75em;
+  shape-rendering: crispEdges;
+}
+
+.yaxis line, .yaxis path {
+  fill: none;
+  stroke: #000;
+}
