@@ -8,6 +8,7 @@ $(document).ready(function(){
   $('#graph_by_dow').click(Gastropangs.fetchMealsByDOW.bind(this));
   $('#score').hide();
   $('#graph').hide();
+  $('#legend').hide();
   $('.open_scoreboard').click(Gastropangs.toggleScoreboard.bind(this));
   $('#clear').click(Gastropangs.clearGraph.bind(this));
   $('#today').click(Gastropangs.fetchTodayMeals.bind(this));

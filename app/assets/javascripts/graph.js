@@ -1,6 +1,7 @@
 var Gastropangs = Gastropangs || {};
 
 Gastropangs.clearGraph = function() {
+  $('#legend').fadeOut(300);
   $('#graph').fadeOut(300);
 };
 
@@ -14,6 +15,9 @@ Gastropangs.fetchTodayMeals = function() {
      $('#graph').fadeOut(300, function() {
         $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(300);
       });
+     $('#legend').fadeOut(300, function() {
+        $('#legend').empty().append(Gastropangs.drawLegend(meals)).fadeIn(300);
+     });
     }
   });
 };
@@ -28,6 +32,9 @@ Gastropangs.fetchRecentMeals = function() {
      $('#graph').fadeOut(300, function() {
         $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(300);
       });
+     $('#legend').fadeOut(300, function() {
+        $('#legend').empty().append(Gastropangs.drawLegend(meals)).fadeIn(300);
+     });
     }
   });
 };
@@ -42,6 +49,9 @@ Gastropangs.fetchMealsOverAte = function() {
       $('#graph').fadeOut(300, function() {
         $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(200);
       });
+      $('#legend').fadeOut(300, function() {
+        $('#legend').empty().append(Gastropangs.drawLegend(meals)).fadeIn(300);
+     });
     }
   });
 };
@@ -58,6 +68,9 @@ Gastropangs.fetchMealsByDOW = function() {
       $('#graph').fadeOut(300, function() {
         $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(300);
       });
+      $('#legend').fadeOut(300, function() {
+        $('#legend').empty().append(Gastropangs.drawLegend(meals)).fadeIn(300);
+     });
       $('#search_dow').val('');
     }
   });
@@ -83,7 +96,6 @@ Gastropangs.drawGraph = function(meals) {
                   .attr('height', height)
                   .attr('width', width);
 
-
      graph.call(tip);
 
      graph.selectAll('rect')
@@ -98,5 +110,34 @@ Gastropangs.drawGraph = function(meals) {
             .attr("y", function(m) { return (height - yScale(m.level_of_fullness)); })
             .on('mouseover', tip.show)
             .on('mouseout', tip.hide);
-
 };
+
+Gastropangs.drawLegend = function(meals){
+
+  var legend = d3.select('#legend')
+                  .attr('height', 100)
+                  .attr('width', 200);
+
+
+  var keys = legend.selectAll('g')
+                  .data(meals, function(m) { return m.time; })
+                  .enter()
+                  .append('g')
+                    .attr('class', 'keys');
+
+  keys.append("rect")
+        .attr('width', 10)
+        .attr('height', 10)
+        .attr('x', 10)
+        .attr('y', function(m, i) {return i * 15; })
+        .style('fill', function(m) { return colorScale(m.time); });
+
+
+  keys.append("text")
+      .attr('x', 20)
+      .attr('y', function(m, i) {return i * 16; })
+      .text(function(m) { return m.time; })
+      .attr("font-size","12px")
+      .attr("stroke","black");
+
+    };
