@@ -105,9 +105,7 @@ Gastropangs.drawGraph = function(meals) {
                      .scale(yAxisScale)
                      .ticks(5);
 
-
      graph.call(tip);
-
 
      graph.selectAll('rect')
           .data(meals)

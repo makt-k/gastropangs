@@ -1,7 +1,3 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .jumbotron {
   text-align: center;
   font-family: 'Philosopher', sans-serif;
@@ -35,7 +31,7 @@ body {
 }
 
 .panel-heading h4 a{
-  color:#71C671;
+  color: steelblue;
   font-size: 1.25em;
   font-family: 'Philosopher', sans-serif;
 }
@@ -55,14 +51,22 @@ body {
   color: #8B8682;
 }
 
-.footer {
-  position: relative;
-  margin-top: -20px;
-  height: 20px;
-  padding-top:20px;
-  font-family: 'Philosopher', sans-serif;
+#tagline {
+  color: steelblue;
 }
 
+#one {
+  background-color: #ECF1EF;
+  text-align: center;
+  font-size: 1.25em;
+}
+
+#two {
+  background-color: #ECF1EF;
+  text-align: center;
+  font-size: 1.25em;
+
+}
 
 @media (max-device-width: 450px){
   #title {
@@ -71,7 +75,7 @@ body {
   }
 
   #tagline {
-    font-size: 1em;
+    font-size: 1.25em;
   }
 
   #home a {
@@ -90,8 +94,16 @@ body {
     font-size: .75em;
   }
 
-  .footer {
+  #one {
     font-size: .75em;
+  }
+
+  #two {
+    font-size: .75em;
+  }
+
+  .panel-heading h4 a {
+    font-size: 1em;
   }
 
 }

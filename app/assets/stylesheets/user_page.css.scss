@@ -23,18 +23,25 @@
 
 .open_report {
   text-align: center;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .panel-heading {
   text-align: center;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .open_scoreboard {
   text-align: center;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .list-group-item {
   text-align: center;
+}
+
+#report {
+  font-family: 'Philosopher', sans-serif;
 }
 
 #score {
@@ -50,6 +57,10 @@
 
 h3 {
   font-size: 1.5em;
+}
+
+.btn-group-vertical button{
+  font-family: 'Philosopher', sans-serif;
 }
 
 .well {
@@ -85,6 +96,7 @@ h3 {
 
 ul.nav li a{
   color: black;
+  font-family: 'Philosopher', sans-serif;
 }
 
 ul.nav li a:hover{
@@ -95,7 +107,6 @@ ul.nav li a:hover{
 ul.nav .active a{
   color: tomato;
 }
-
 
 @media (max-device-width: 450px){
   .note {
@@ -112,7 +123,7 @@ ul.nav .active a{
 
  .btn-group-vertical {
     white-space: normal;
-    width: 110%;
+    width: 130%;
     margin: 3 0px 0;
   }
 
