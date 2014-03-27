@@ -6,7 +6,7 @@ Gastropangs.saveMeal = function(event) {
     $date = $("#meal_date"),
     $note = $("#meal_note"),
     meal,
-    id = $('#all').data('user');
+    id = $('#recent').data('user');
 
   event.preventDefault();
   this.currentMeal = new Gastropangs.Meal($fullness.val(), $time.val(), $date.val(), $note.val());

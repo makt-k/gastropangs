@@ -15,4 +15,3 @@
 //= require jquery.ui.datepicker
 //= require d3
 //= require_tree .
-

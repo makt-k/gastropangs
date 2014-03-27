@@ -1,9 +1,11 @@
 <div class="panel panel-warning">
   <div class="panel-heading"><%= will_paginate @meals_display %></div>
-   <ul class="list-group">
-    <% @meals_display.each do |meal| %>
-    <li class="list-group-item"><span class="date"><%= meal.date.strftime("%a, %b %d") %>:</span> <%= meal.time %> <%= link_to 'Details', user_meal_path(meal.user_id, meal.id) %></li>
-  <% end %>
-    </ul>
+    <div id="meal-list">
+     <ul class="list-group">
+      <% @meals_display.each do |meal| %>
+      <li class="list-group-item"><span class="date"><%= meal.date.strftime("%a, %b %d") %>:</span> <%= meal.time %> <%= link_to 'Details', user_meal_path(meal.user_id, meal.id) %></li>
+      <% end %>
+      </ul>
+    </div>
   </div>
 

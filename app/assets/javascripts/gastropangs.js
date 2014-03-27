@@ -13,3 +13,5 @@ $(document).ready(function(){
   $('#today').click(Gastropangs.fetchTodayMeals.bind(this));
   $('.panel-collapse').collapse();
 });
+
+

@@ -1,19 +1,19 @@
 <div class="row-fluid">
   <ul class="nav nav-tabs">
-    <li class="active"><a href="#form" data-toggle="tab">New Meal</a></li>
-    <li><a href="#reporting" data-toggle="tab">Report</a></li>
+    <li><a href="#form" data-toggle="tab">New Meal</a></li>
+    <li class="active"><a href="#reporting" data-toggle="tab">Report</a></li>
     <li><a href="#chart" data-toggle="tab">Graph</a></li>
   </ul>
 
   <div class="tab-content">
 
-    <div class="tab-pane active" id="form">
+    <div class="tab-pane" id="form">
       <div class="col-lg-4">
         <%= render partial: 'new_form' %>
       </div>
     </div>
 
-    <div class="tab-pane" id="reporting">
+    <div class="tab-pane active" id="reporting">
       <div class="col-xs-12 col-md-8">
         <h3 class="open_report">Report</h3>
         <h6 class="open_report">(Click to View)</h6>
@@ -47,7 +47,6 @@
         </div>
       </div>
     </div>
-  <footer class="footer">&copy Karen Mak 2014</footer>
 </div>
 
 
