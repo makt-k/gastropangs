@@ -83,6 +83,20 @@ h3 {
   margin: 3 0px 0
  }
 
+ul.nav li a{
+  color: black;
+}
+
+ul.nav li a:hover{
+  background-color: tomato;
+  opacity: 0.5;
+}
+
+ul.nav .active a{
+  color: tomato;
+}
+
+
 @media (max-device-width: 450px){
   .note {
     font-size: 1em;
