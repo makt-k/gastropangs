@@ -3,6 +3,7 @@
   <head>
     <title>Gastropangs</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
@@ -22,7 +23,7 @@
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signed in as <%= current_user.email %><b class="caret"></b></a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-right">
                   <li><%= link_to 'User Dashboard', user_meals_path(current_user.id) %></li>
                   <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
                 </ul>
@@ -48,5 +49,6 @@
     </div>
     <%= yield %>
   </div>
+  <footer>&copy Karen Mak 2014</footer>
   </body>
 </html>

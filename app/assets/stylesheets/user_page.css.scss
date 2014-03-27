@@ -6,15 +6,19 @@
 
 .col-md-6 {
   text-align: center;
+  font-size: 1.5em;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .date {
-  color: #218868;
+  color: #71C671;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .note {
-  color: #218868;
-  font-size: 1.25em;
+  color: #71C671;
+  font-size: 1.5em;
+  font-family: 'Philosopher', sans-serif;
 }
 
 .open_scoreboard {
@@ -23,8 +27,39 @@
 
 #score {
   text-align: center;
+  font-family: 'Philosopher', sans-serif;
 }
 
 #score h4 {
-  color: #218868;
+  color: #71C671;
+  font-size: 1.25em;
+  font-family: 'Philosopher', sans-serif;
 }
+
+h3 {
+  font-size: 1.5em;
+}
+
+.well {
+  background-color: #F0FFF0;
+  border-radius: 6px;
+  border-color: #B0E2FF;
+  border-width: 5px;
+  text-align: center;
+}
+
+#level {
+  font-size: 2em;
+  color: tomato;
+}
+
+.panel {
+  border-radius: 6px;
+  border-color: #B0E2FF;
+  border-width: 5px;
+}
+
+.panel-body {
+  font-family: 'Philosopher', sans-serif;
+}
+

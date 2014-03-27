@@ -1,10 +1,14 @@
 var Gastropangs = Gastropangs || {};
 
-Gastropangs.fetchAllMeals = function() {
-  var id = $('#all').data('user');
+Gastropangs.clearGraph = function() {
+  $('#graph').fadeOut(300);
+};
+
+Gastropangs.fetchTodayMeals = function() {
+  var id = $('#recent').data('user');
   $.ajax({
     type: "GET",
-    url: "/users/" + id + "/meals",
+    url: "/users/" + id + "/today",
     dataType: "JSON",
     success: function(meals) {
      $('#graph').fadeOut(300, function() {
@@ -14,8 +18,36 @@ Gastropangs.fetchAllMeals = function() {
   });
 };
 
+Gastropangs.fetchRecentMeals = function() {
+  var id = $('#recent').data('user');
+  $.ajax({
+    type: "GET",
+    url: "/users/" + id + "/recent",
+    dataType: "JSON",
+    success: function(meals) {
+     $('#graph').fadeOut(300, function() {
+        $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(300);
+      });
+    }
+  });
+};
+
+Gastropangs.fetchMealsOverAte = function() {
+  var id = $('#recent').data('user');
+  $.ajax({
+    type: "GET",
+    url: "/users/" + id + "/over",
+    dataType: "JSON",
+    success: function(meals) {
+      $('#graph').fadeOut(300, function() {
+        $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(200);
+      });
+    }
+  });
+};
+
 Gastropangs.fetchMealsByDOW = function() {
-   var id = $('#all').data('user'),
+   var id = $('#recent').data('user');
    weekday = $('#search_dow').val().toLowerCase().trim();
    $.ajax({
     type: "GET",
@@ -29,24 +61,6 @@ Gastropangs.fetchMealsByDOW = function() {
       $('#search_dow').val('');
     }
   });
-};
-
-Gastropangs.fetchMealsOverAte = function() {
-  var id = $('#all').data('user');
-  $.ajax({
-    type: "GET",
-    url: "/users/" + id + "/over",
-    dataType: "JSON",
-    success: function(meals) {
-      $('#graph').fadeOut(300, function() {
-        $('#graph').empty().append(Gastropangs.drawGraph(meals)).fadeIn(200);
-      });
-    }
-  });
-};
-
-Gastropangs.clearGraph = function() {
-  $('#graph').fadeOut(300);
 };
 
 Gastropangs.drawGraph = function(meals) {

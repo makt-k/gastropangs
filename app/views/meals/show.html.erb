@@ -1,7 +1,12 @@
-<h3><%= @meal.date %>: <%= @meal.time %></h3>
-<h2>Satiety: <%= @meal.level_of_fullness %></h2>
-
-<%= @meal.note %>
-
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3><%= @meal.date.strftime("%a, %b %d") %>: <%= @meal.time %></h3>
+    <h2>Satiety: <%= @meal.level_of_fullness %></h2>
+  </div>
+  <div class="panel-body">
+    <h4>Notes:</h4>
+    <%= @meal.note %>
+  </div>
+</div>
 
 

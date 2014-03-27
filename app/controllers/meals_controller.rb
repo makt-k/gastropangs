@@ -18,8 +18,17 @@ class MealsController < ApplicationController
     end
   end
 
-  def overate
-    @meals = current_user.meals.order(:date).where('level_of_fullness > ?', 7)
+  def recent_meals
+    @meals = current_user.meals.order(:date).limit(15)
+
+     respond_to do |format|
+      format.html
+      format.json {render json: @meals, root: false }
+    end
+  end
+
+  def meals_overate
+    @meals = current_user.meals.order(:date).reverse_order.where('level_of_fullness > ?', 7).limit(15)
 
      respond_to do |format|
       format.html
@@ -28,7 +37,16 @@ class MealsController < ApplicationController
   end
 
   def meals_by_dow
-    @meals = current_user.meals.order(:date).on_weekday(@weekday)
+    @meals = current_user.meals.order(:date).reverse_order.on_weekday(@weekday).limit(15)
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @meals, root: false }
+    end
+  end
+
+  def meals_today
+    @meals = current_user.meals.today
 
     respond_to do |format|
       format.html
@@ -38,7 +56,6 @@ class MealsController < ApplicationController
 
   def create
     @meal = Meal.new(meal_params)
-    # @meal.date = Date.strptime(meal_params[:date], '%m/%d/%Y').to_s
     if @meal.save!
       @user.meals << @meal
       redirect_to :back, notice: 'Sweet! A new meal added.'

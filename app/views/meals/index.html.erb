@@ -14,8 +14,9 @@
   <div class="col-md-2">
     <div class="btn-group-vertical">
       <button id="clear" class="btn btn-danger">Clear Graph</button>
-      <button id="all" data-user="<%= current_user.id %>" class="btn btn-success">Your Meals</button>
-      <button id="overate" class="btn btn-primary">Stufd Meals</button>
+      <button id="today" class="btn btn-info">Today's Meals</button>
+      <button id="recent" data-user="<%= current_user.id %>" class="btn btn-success">Recent Meals</button>
+      <button id="overate" class="btn btn-primary">OverStufd Meals</button>
       <input id="search_dow" placeholder="(e.g. 'Monday')" class="form-control">
       <button id="graph_by_dow" class="btn btn-warning">View by Day of Week</button>
     </div>
