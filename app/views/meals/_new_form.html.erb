@@ -2,10 +2,11 @@
   <div class="panel-body">
     <div class="form">
       <%= form_for [@user, @meal] do |f| %>
-        <div class="col-md-2">
+      <div class="row">
+        <div class="col-xs-1 col-md-3">
           <%= f.range_field :level_of_fullness, min: 1, max: 10, value: 1 %>
         </div>
-        <div class="col-md-8">
+        <div class="col-xs-10 col-md-8">
           <div class="form-group">
             <%= f.select(:time, options_for_select(['', 'Morning(6am-12pm)', 'Afternoon(12pm-6pm)', 'Evening(6pm-12am)', 'Owl Time(12am-6am)']), {}, {class: "form-control"})%>
           </div>
@@ -17,7 +18,8 @@
           </div>
           <p class="note">Stufdometer: <span id="level">1</span> out of 10</p>
           <%= f.submit class: "btn btn-info"%>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

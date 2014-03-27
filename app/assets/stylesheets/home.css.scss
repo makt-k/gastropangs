@@ -15,7 +15,7 @@
 }
 
 #home a {
-  font-size: 2.5em;
+  font-size: 2.75em;
   color: #CD4F39;
   font-weight: bold;
 }
@@ -51,14 +51,47 @@ body {
 }
 
 .panel-heading h4 a:hover{
-text-decoration: none;
-color: #8B8682;
+  text-decoration: none;
+  color: #8B8682;
 }
 
-footer {
-  background-color:#B0E2FF;
-  opacity: 0.8;
+.footer {
+  position: relative;
+  margin-top: -20px;
+  height: 20px;
+  padding-top:20px;
   font-family: 'Philosopher', sans-serif;
-  font-weight: bold;
-  padding-left: 10px;
+}
+
+
+@media (max-device-width: 450px){
+  #title {
+    font-size: 3em;
+    padding: none;
+  }
+
+  #tagline {
+    font-size: 1em;
+  }
+
+  #home a {
+    font-size: 1.5em;
+  }
+
+  .dropdown-menu {
+    font-size: .75em;
+  }
+
+  .dropdown-toggle {
+    font-size: .75em;
+  }
+
+  .notice-alert {
+    font-size: .75em;
+  }
+
+  .footer {
+    font-size: .75em;
+  }
+
 }

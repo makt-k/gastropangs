@@ -1,6 +1,6 @@
 #meal_level_of_fullness {
     -webkit-appearance: slider-vertical;
-    width: 20px;
+    width: 150%;
     height: 300px;
 }
 
@@ -21,7 +21,19 @@
   font-family: 'Philosopher', sans-serif;
 }
 
+.open_report {
+  text-align: center;
+}
+
+.panel-heading {
+  text-align: center;
+}
+
 .open_scoreboard {
+  text-align: center;
+}
+
+.list-group-item {
   text-align: center;
 }
 
@@ -61,5 +73,38 @@ h3 {
 
 .panel-body {
   font-family: 'Philosopher', sans-serif;
+}
+
+#graph {
+  margin: 3 0px 0
+ }
+
+@media (max-device-width: 450px){
+  .note {
+    font-size: 1em;
+  }
+
+  .list-group-item {
+    font-size: .75em;
+  }
+
+  .panel-heading {
+    font-size: .75em;
+  }
+
+ .btn-group-vertical {
+    white-space: normal;
+    width: 110%;
+    margin: 3 0px 0;
+  }
+
+ .btn-group-vertical button {
+   font-size: .4em;
+ }
+
+ #search_dow {
+ font-size: .5em;
+ }
+
 }
 

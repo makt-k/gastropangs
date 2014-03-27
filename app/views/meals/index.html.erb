@@ -1,30 +1,55 @@
-<div class="row">
-  <div class="col-md-4">
-    <%= render partial: 'new_form' %>
-  </div>
-  <div class="col-md-6">
-    <h3 class="open_report">Report</h3>
-      <h6 class="open_report">(Click to View)</h6>
+<div class="row-fluid">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#form" data-toggle="tab">New Meal</a></li>
+    <li><a href="#reporting" data-toggle="tab">Report</a></li>
+    <li><a href="#chart" data-toggle="tab">Graph</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <div class="tab-pane active" id="form">
+      <div class="col-lg-4">
+        <%= render partial: 'new_form' %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="reporting">
+      <div class="col-xs-12 col-md-8">
+        <h3 class="open_report">Report</h3>
+        <h6 class="open_report">(Click to View)</h6>
         <div id="report">
           <%= render partial: 'meals_report' %>
         </div>
-    <svg id="graph">
-    </svg>
-  </div>
-  <div class="col-md-2">
-    <div class="btn-group-vertical">
-      <button id="clear" class="btn btn-danger">Clear Graph</button>
-      <button id="today" class="btn btn-info">Today's Meals</button>
-      <button id="recent" data-user="<%= current_user.id %>" class="btn btn-success">Recent Meals</button>
-      <button id="overate" class="btn btn-primary">OverStufd Meals</button>
-      <input id="search_dow" placeholder="(e.g. 'Monday')" class="form-control">
-      <button id="graph_by_dow" class="btn btn-warning">View by Day of Week</button>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h4 class="open_scoreboard">Stufd Scoreboard</h4>
+        <h6 class="open_scoreboard">(Click to View)</h6>
+          <%= render partial: 'stufd_score' %>
+      </div>
     </div>
-    <h4 class="open_scoreboard">Stufd Scoreboard</h4>
-      <h6 class="open_scoreboard">(Click to View)</h6>
-      <%= render partial: 'stufd_score' %>
-  </div>
+
+    <div class="tab-pane" id="chart">
+      <div class="col-xs-0 col-md-3">
+      </div>
+      <div class="col-xs-12 col-md-7">
+        <svg id="graph">
+
+        </svg>
+      </div>
+      <div class="col-xs-12 col-md-2">
+        <div class="btn-group-vertical">
+          <button id="clear" class="btn btn-danger">Clear Graph</button>
+          <button id="today" class="btn btn-info">Today's Meals</button>
+          <button id="recent" data-user="<%= current_user.id %>" class="btn btn-success">Recent Meals</button>
+          <button id="overate" class="btn btn-primary">OverStufd Meals</button>
+          <input id="search_dow" placeholder="('e.g. Monday')" class="form-control">
+          <button id="graph_by_dow" class="btn btn-warning">View by Day of Week</button>
+        </div>
+      </div>
+    </div>
+  <footer class="footer">&copy Karen Mak 2014</footer>
 </div>
+
 
 
 

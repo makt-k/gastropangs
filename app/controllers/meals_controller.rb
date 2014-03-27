@@ -6,7 +6,7 @@ class MealsController < ApplicationController
   def index
    if current_user
      @meals = current_user.meals.order(:date)
-     @meals_display = @meals.reverse_order.page(params[:page]).per_page(15)
+     @meals_display = @meals.reverse_order.page(params[:page]).per_page(10)
      @meal = Meal.new
    else
      redirect_to new_user_session_path, notice: 'You are not logged in.'
@@ -19,7 +19,7 @@ class MealsController < ApplicationController
   end
 
   def recent_meals
-    @meals = current_user.meals.order(:date).limit(15)
+    @meals = current_user.meals.order(:date).reverse_order.limit(11)
 
      respond_to do |format|
       format.html
@@ -28,7 +28,7 @@ class MealsController < ApplicationController
   end
 
   def meals_overate
-    @meals = current_user.meals.order(:date).reverse_order.where('level_of_fullness > ?', 7).limit(15)
+    @meals = current_user.meals.order(:date).reverse_order.where('level_of_fullness > ?', 7).limit(11)
 
      respond_to do |format|
       format.html
@@ -37,7 +37,7 @@ class MealsController < ApplicationController
   end
 
   def meals_by_dow
-    @meals = current_user.meals.order(:date).reverse_order.on_weekday(@weekday).limit(15)
+    @meals = current_user.meals.order(:date).reverse_order.on_weekday(@weekday).limit(11)
 
     respond_to do |format|
       format.html
