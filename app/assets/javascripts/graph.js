@@ -79,7 +79,7 @@ Gastropangs.fetchMealsByDOW = function() {
 Gastropangs.drawGraph = function(meals) {
    var margin = {top: 20, right: 10, bottom: 20, left: 50},
          width = 350 - margin.left - margin.right,
-         height = 600 - margin.top - margin.bottom,
+         height = 350 - margin.top - margin.bottom,
          padding = 50;
 
    var colorScale= d3.scale.category10();
