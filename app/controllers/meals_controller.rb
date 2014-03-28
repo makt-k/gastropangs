@@ -59,6 +59,8 @@ class MealsController < ApplicationController
     if @meal.save!
       @user.meals << @meal
       redirect_to :back, notice: 'Sweet! A new meal added.'
+    else
+      redirect_to :back, alert: 'Sorry, something unexpected happened. Please try again.'
     end
   end
 

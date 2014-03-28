@@ -13,7 +13,7 @@ Gastropangs.saveMeal = function(event) {
   meal = this.currentMeal;
 
   if($time.val() === "" || $date.val() === "") {
-    $('.notice-alert').prepend("Please enter a time and date for your meal.");
+    $('#user-notice').prepend("Please enter a time and date for your meal.").fadeOut(3000,function(){ $(this).remove(); });
     } else {
     $.ajax({
       type: "POST",
@@ -31,6 +31,7 @@ Gastropangs.saveMeal = function(event) {
         $('#meal_time').val('');
         $('#meal_date').val('');
         $('#meal_note').val('');
+        $('#user-notice').prepend("Sweet! A new meal has been added.").fadeOut(3000,function(){ $(this).remove(); });
     });
   }
 };

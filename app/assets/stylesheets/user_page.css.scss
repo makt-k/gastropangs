@@ -127,13 +127,19 @@ ul.nav .active a{
     margin: 3 0px 0;
   }
 
- .btn-group-vertical button {
-   font-size: .4em;
- }
+  .btn-group-vertical button {
+   font-size: 1.25em;
+  }
 
- #search_dow {
- font-size: .5em;
- }
+  #search_dow {
+    font-size: .5em;
+  }
 
+  ul.nav li a{
+    font-size: 1.25em;
+  }
+  #user-notice{
+    font-size: .75em;
+  }
 }
 

@@ -17,7 +17,6 @@ $(document).ready(function(){
   $('#score').hide();
 
   $('.panel-collapse').collapse();
-  $(".notice-alert").delay(4000).hide();
 });
 
 
