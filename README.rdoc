@@ -1,4 +1,4 @@
-== READM
+== README
 
 "Should we stop eating when we are no longer hungry or until we are full?"
 A project aimed to cultivate a shift in how we think about hunger and fullness, allowing users to stay conscious of their eating habits and alert them to possible red flags in their consumption patterns.
