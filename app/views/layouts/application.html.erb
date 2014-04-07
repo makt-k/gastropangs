@@ -3,7 +3,7 @@
   <head>
     <title>Gastropangs</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gudea' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -13,32 +13,28 @@
   </head>
   <body>
     <!-- user status -->
+    <div class="container">
       <div class="navbar navbar-default">
-        <div class="container-fluid">
-          <span id="home"><%= link_to 'G', root_path %></span>
-          <span id="user-notice"></span>
-          <div class="navbar-header pull-right">
-           <!-- User NAV -->
-           <div class="login-nav">
-            <% if user_signed_in? %>
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Signed in as <%= current_user.email %><b class="caret"></b></a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li><%= link_to 'User Dashboard', user_meals_path(current_user.id) %></li>
-                  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <% else %>
-            <span><%=  link_to 'Sign In', new_user_session_path %></span>
-          <% end %>
-         </span>
-        </div>
+        <div class="navbar-header pull-right">
+         <!-- User NAV -->
+          <% if user_signed_in? %>
+          <ul class="nav navbar-nav">
+            <li id="home"><%= link_to 'Home', root_path %></li>
+            <li id="user-notice"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><%= link_to 'User Dashboard', user_meals_path(current_user.id) %></li>
+                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        <% else %>
+          <span><%=  link_to 'Sign In', new_user_session_path %></span>
+        <% end %>
+       </span>
       </div>
     </div>
-  <div class="container-fluid">
   <!-- notice & alerts -->
     <div class="notice-alert">
       <% if notice.present? %>
@@ -47,8 +43,9 @@
       <% if alert.present?%>
         <p class="alert"><%= alert %></p>
        <% end%>
+      </div>
+      <%= yield %>
     </div>
-    <%= yield %>
-  </div>
   </body>
 </html>
+

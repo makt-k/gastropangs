@@ -1,71 +1,74 @@
 .jumbotron {
   text-align: center;
-  font-family: 'Philosopher', sans-serif;
-  color: #CD4F39;
+  font-family: 'Gudea', sans-serif;
+  color:tomato;
+  background-color:#F5F5F5;
+  background-image: url('http://4.bp.blogspot.com/-kUn4jfjWpq4/TejdJtZ53LI/AAAAAAAADIA/8HK6zIyzYvc/s1600/cheese-and-sausage-stuffed-hamburger.JPG');
 }
 
 .navbar {
-  background-color: #B0E2FF;
-  font-family: 'Philosopher', sans-serif;
+  background-color: #FCFCFC;
+  opacity: .5;
+  font-family: 'Gudea', sans-serif;
   font-size: 1.25em;
+  min-height: 10px;
+  border-radius: 0px;
+  color:tomato;
 }
 
-#home a {
-  font-size: 2.75em;
-  color: #CD4F39;
-  font-weight: bold;
+.nav.navbar-nav li a{
+  color:tomato;
 }
 
 #home a:hover {
-  text-decoration: none;
+  text-decoration:none;
   opacity: 0.5;
 }
 
 body {
-  background-color: tomato;
+  background-color: #F5F5F5;
 }
 
 .panel-heading h4 {
   text-align: center;
-  color:#71C671;
 }
 
 .panel-heading h4 a{
-  color: steelblue;
+  color: #696969;
   font-size: 1.25em;
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Gudea', sans-serif;
 }
 
 .notice-alert{
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Gudea', sans-serif;
 }
 
 .dropdown-menu{
-  font-size: 1.25em;
-  background-color:#F0FFF0;
-  border-radius: 6px;
+  background-color:#FCFCFC;
+}
+
+.dropdown a{
+  font-size: .85em;
 }
 
 .panel-heading h4 a:hover{
   text-decoration: none;
-  color: #8B8682;
+  color: tomato;
 }
 
 #tagline {
-  color: steelblue;
+  font-style: italic;
+  color:#FCFCFC;
 }
 
 #one {
-  background-color: #ECF1EF;
   text-align: center;
   font-size: 1.25em;
 }
 
 #two {
-  background-color: #ECF1EF;
   text-align: left;
   font-size: 1.25em;
-
 }
 
 @media (max-device-width: 450px){

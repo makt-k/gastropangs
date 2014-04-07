@@ -1,5 +1,5 @@
 <div id="score">
-  <div class="panel panel-warning">
+  <div class="panel panel-default">
     <div class="panel-heading"><h4>Stufd on:</h4></div>
       <ul class="list-group">
       <% {1=> 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday',6 => 'Saturday', 7 => 'Sunday'}.each do |k, v| %>
@@ -8,7 +8,7 @@
       </ul>
 
   </div>
-  <div class="panel panel-warning">
+  <div class="panel panel-default">
     <div class="panel-heading"><h4>Stufd by:</h4></div>
       <ul class="list-group">
         <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Breakfast') %></li>
