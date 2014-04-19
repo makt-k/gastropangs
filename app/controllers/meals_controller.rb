@@ -28,7 +28,7 @@ class MealsController < ApplicationController
   end
 
   def meals_overate
-    @meals = current_user.meals.order(:date).reverse_order.where('level_of_fullness > ?', 7).limit(11)
+    @meals = current_user.meals.order(:date).reverse_order.with_high_fullness.limit(11)
 
      respond_to do |format|
       format.html
