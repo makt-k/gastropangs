@@ -12,82 +12,82 @@ class MealsController < ApplicationController
      redirect_to new_user_session_path, notice: 'You are not logged in.'
    end
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @meals, root: false }
-    end
+   respond_to do |format|
+    format.html
+    format.json {render json: @meals, root: false }
   end
+end
 
-  def recent_meals
-    @meals = current_user.meals.order(:date).reverse_order.limit(11)
+def recent_meals
+  @meals = current_user.meals.order(:date).reverse_order.limit(11)
 
-     respond_to do |format|
-      format.html
-      format.json {render json: @meals, root: false }
-    end
+  respond_to do |format|
+    format.html
+    format.json {render json: @meals, root: false }
   end
+end
 
-  def meals_overate
-    @meals = current_user.meals.order(:date).reverse_order.with_high_fullness.limit(11)
+def meals_overate
+  @meals = current_user.meals.order(:date).reverse_order.with_high_fullness.limit(11)
 
-     respond_to do |format|
-      format.html
-      format.json {render json: @meals, root: false }
-    end
+  respond_to do |format|
+    format.html
+    format.json {render json: @meals, root: false }
   end
+end
 
-  def meals_by_dow
-    @meals = current_user.meals.order(:date).reverse_order.on_weekday(@weekday).limit(11)
+def meals_by_dow
+  @meals = current_user.meals.order(:date).reverse_order.on_weekday(@weekday).limit(11)
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @meals, root: false }
-    end
+  respond_to do |format|
+    format.html
+    format.json {render json: @meals, root: false }
   end
+end
 
-  def meals_today
-    @meals = current_user.meals.today
+def meals_today
+  @meals = current_user.meals.today
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @meals, root: false }
-    end
+  respond_to do |format|
+    format.html
+    format.json {render json: @meals, root: false }
   end
+end
 
-  def create
-    @meal = Meal.new(meal_params)
-    if @meal.save!
-      @user.meals << @meal
-      redirect_to :back, notice: 'Sweet! A new meal added.'
-    else
-      redirect_to :back, alert: 'Sorry, something unexpected happened. Please try again.'
-    end
+def create
+  @meal = Meal.new(meal_params)
+  if @meal.save!
+    @user.meals << @meal
+    redirect_to :back, notice: 'Sweet! A new meal added.'
+  else
+    redirect_to :back, alert: 'Sorry, something unexpected happened. Please try again.'
   end
+end
 
-  def show
-    @meal = Meal.find(params[:id])
-  end
+def show
+  @meal = Meal.find(params[:id])
+end
 
-  private
+private
 
-  def meal_params
-    params.require(:meal).permit(:time, :level_of_fullness, :date, :id, :weekday, :note)
-  end
+def meal_params
+  params.require(:meal).permit(:time, :level_of_fullness, :date, :id, :weekday, :note)
+end
 
-  def get_user
-    @user= User.find(params[:user_id])
-  end
+def get_user
+  @user= User.find(params[:user_id])
+end
 
-  def get_dow
-    dow = {
-      monday: 1,
-      tuesday: 2,
-      wednesday: 3,
-      thursday: 4,
-      friday: 5,
-      saturday: 6,
-      sunday: 7
-    }
-    @weekday = dow[params[:weekday].to_sym]
-  end
+def get_dow
+  dow = {
+    monday: 1,
+    tuesday: 2,
+    wednesday: 3,
+    thursday: 4,
+    friday: 5,
+    saturday: 6,
+    sunday: 7
+  }
+  @weekday = dow[params[:weekday].to_sym]
+end
 end

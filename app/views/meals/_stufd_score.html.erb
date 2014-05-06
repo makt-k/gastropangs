@@ -1,20 +1,20 @@
 <div id="score">
   <div class="panel panel-default">
     <div class="panel-heading"><h4>Stufd on:</h4></div>
-      <ul class="list-group">
+    <ul class="list-group">
       <% {1=> 'Monday', 2 => 'Tuesday', 3 => 'Wednesday', 4 => 'Thursday', 5 => 'Friday',6 => 'Saturday', 7 => 'Sunday'}.each do |k, v| %>
-        <li class="list-group-item"><%= pluralize(@meals.overeating_count_on_weekday(k), v) %></li>
+      <li class="list-group-item"><%= pluralize(@meals.overeating_count_on_weekday(k), v) %></li>
       <% end %>
-      </ul>
+    </ul>
 
   </div>
   <div class="panel panel-default">
     <div class="panel-heading"><h4>Stufd by:</h4></div>
-      <ul class="list-group">
-        <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Breakfast') %></li>
-        <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Afternoon(12pm-6pm)"), 'Lunch') %></li>
-        <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Night(6pm-12am)"), 'Dinner') %></li>
-        <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Owl Time(12am-6am)"), 'Midnight Snack') %></li>
-      </ul>
+    <ul class="list-group">
+      <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Morning(6am-12pm)"), 'Breakfast') %></li>
+      <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Afternoon(12pm-6pm)"), 'Lunch') %></li>
+      <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Night(6pm-12am)"), 'Dinner') %></li>
+      <li class="list-group-item"><%= pluralize(@meals.overeating_count_per_type_of_meal("Owl Time(12am-6am)"), 'Midnight Snack') %></li>
+    </ul>
   </div>
 </div>

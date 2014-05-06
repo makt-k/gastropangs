@@ -1,8 +1,8 @@
 <div class="row-fluid">
   <ul class="nav nav-tabs">
-    <li><a href="#form" data-toggle="tab">New Meal</a></li>
-    <li class="active"><a href="#reporting" data-toggle="tab">Report</a></li>
-    <li><a href="#chart" data-toggle="tab">Graph</a></li>
+    <li><a href="#form" data-target="#form" data-toggle="tab">New Meal</a></li>
+    <li class="active"><a href="#reporting" data-target="#reporting" data-toggle="tab">Report</a></li>
+    <li><a href="#chart" data-target="#chart" data-toggle="tab">Graph</a></li>
   </ul>
 
   <div class="tab-content">
@@ -23,7 +23,7 @@
       <div class="col-xs-12 col-md-4">
         <h4 class="open_scoreboard">Stufd Scoreboard</h4>
         <h6 class="open_scoreboard">(Click to View)</h6>
-          <%= render partial: 'stufd_score' %>
+        <%= render partial: 'stufd_score' %>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-</div>
+  </div>
 
 
 

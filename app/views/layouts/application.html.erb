@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gastropangs</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Gudea' rel='stylesheet' type='text/css'>
-    <%= stylesheet_link_tag    "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-     <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <!-- user status -->
-    <div class="container">
-      <div class="navbar navbar-default">
-        <div class="navbar-header pull-right">
-         <!-- User NAV -->
-          <% if user_signed_in? %>
-          <ul class="nav navbar-nav">
-            <li id="home"><%= link_to 'Home', root_path %></li>
-            <li id="user-notice"></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
-              <ul class="dropdown-menu dropdown-menu-right">
-                <li><%= link_to 'User Dashboard', user_meals_path(current_user.id) %></li>
-                <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
+<head>
+  <title>Gastropangs</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Gudea' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- user status -->
+  <div class="container">
+    <div class="navbar navbar-default">
+      <div class="navbar-header pull-right">
+       <!-- User NAV -->
+       <% if user_signed_in? %>
+       <ul class="nav navbar-nav">
+        <li id="home"><%= link_to 'Home', root_path %></li>
+        <li id="user-notice"></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %><b class="caret"></b></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><%= link_to 'User Dashboard', user_meals_path(current_user.id) %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
           </ul>
-        <% else %>
-          <span><%=  link_to 'Sign In', new_user_session_path %></span>
-        <% end %>
-       </span>
-      </div>
-    </div>
-  <!-- notice & alerts -->
-    <div class="notice-alert">
-      <% if notice.present? %>
-        <p class="notice"><%= notice %></p>
+        </li>
+      </ul>
+      <% else %>
+      <span><%=  link_to 'Sign In', new_user_session_path %></span>
       <% end %>
-      <% if alert.present?%>
-        <p class="alert"><%= alert %></p>
-       <% end%>
-      </div>
-      <%= yield %>
-    </div>
-  </body>
+    </span>
+  </div>
+</div>
+<!-- notice & alerts -->
+<div class="notice-alert">
+  <% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if alert.present?%>
+  <p class="alert"><%= alert %></p>
+  <% end%>
+</div>
+<%= yield %>
+</div>
+</body>
 </html>
 
