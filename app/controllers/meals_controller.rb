@@ -3,7 +3,7 @@ class MealsController < ApplicationController
   before_action :get_user
   before_action :get_dow, only: [:meals_by_dow]
 
-  def index
+def index
    if current_user
      @meals = current_user.meals.order(:date)
      @meals_display = @meals.reverse_order.page(params[:page]).per_page(10)
